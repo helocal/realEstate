@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>main</h1>
+        <h1>综合查询</h1>
     </div>
 </template>
 <script>
@@ -10,12 +10,6 @@ export default {
             
         }
     },
-    created(){
-        
-    },
-    methods(){
-        
-    }
 }
 </script>
 <style scoped>

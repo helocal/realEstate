@@ -25,7 +25,7 @@
                             <el-form-item prop="password">
                                 <el-input placeholder="请输入密码" type="password"  v-model="loginForm.password"  prefix-icon="el-icon-s-claim" ></el-input>
                             </el-form-item>
-                            <el-radio>记住密码</el-radio>
+                            <el-checkbox v-model="checked" @click="remPwd">记住密码</el-checkbox>
                             <el-form-item>
                                 <el-button type="primary" class="btn" @click="login">登录</el-button>
                             </el-form-item>
@@ -51,9 +51,11 @@ export default {
         return{
             loginForm:{
                 username:'admin',     
-                password:'admin'
+                password:'admin',
+                userRole:'admin'
             },
-            token:'12345WAGSGNKBBBVSB'
+            token:'12345WAGSGNKBBBVSB',
+            checked:'true'
         }
     },
     // 生命周期函数
@@ -61,18 +63,29 @@ export default {
         
     },
     methods:{
+        // 登录
         login(){
-            if(this.loginForm.username && this.loginForm.password !==''){
-                
-                // 判断用户是否登录
-                window.sessionStorage.setItem('token',this.token);
-                this.$message.success('登陆成功！')
+            // 判断用户是否登录
+            window.sessionStorage.setItem('token',this.token);
+            
+            // 判断用户角色
+            if(this.loginForm.userRole ==='admin'){
+                // 管理员角色
+                this.$router.push('/management')
+                this.$message.success('登录成功！')
+            }else if(this.loginForm.userRole ==='user'){
+                // 普通用户角色
                 this.$router.push('/home')
+                this.$message.success('登录成功！')
             }
             else{
-                this.$message.error('登录失败！')
+                this.$message.error('用户名或密码错误！')
             }
+        },
+        // 记住密码
+        remPwd(){
         }
+        
     }
 }
 </script>
@@ -121,8 +134,8 @@ export default {
     }
     /* login中间页面 */
     .el-main{
-       height: 80%;
-       background: url('../assets/img/login/loginBack.png') no-repeat 100% 100%;
+       /* height: 80%; */
+       background: url('../assets/img/login/loginBack.png') scroll no-repeat center center transparent;;
     }
     .el-main .location img{
         float: right;
@@ -159,7 +172,7 @@ export default {
         width: 80%;
         margin-left:10%;
     }
-    .login_box .el-radio{
+    .login_box .el-checkbox{
         float: right;
         margin-right: 10%;
     }
