@@ -117,7 +117,7 @@ export default {
 <style scoped>
 
     .el-container{
-        height: 120%;
+        height: 150%;
     }
     .el-header{
         position: relative;

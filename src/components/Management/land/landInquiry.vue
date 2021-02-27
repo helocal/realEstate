@@ -10,46 +10,46 @@
         
         <!-- 查询-->
         <el-card>
-            <el-form ref="landInquiryRefs" :inline="true" :model="formInline" >
+            <el-form ref="landInquiryRefs" :inline="true" :model="formInquiry" >
                 <el-form-item label="坐落位置" prop="region">
-                    <el-select v-model="formInline.region" placeholder="活动区域">
+                    <el-select v-model="formInquiry.region" placeholder="活动区域">
                         <el-option label="区域一" value="shanghai"></el-option>
                         <el-option label="区域二" value="beijing"></el-option>
                     </el-select>
                 </el-form-item>
                 
                 <el-form-item label="性质" prop="region1">
-                    <el-select v-model="formInline.region1" placeholder="活动区域">
+                    <el-select v-model="formInquiry.region1" placeholder="活动区域">
                         <el-option label="区域一" value="shanghai"></el-option>
                         <el-option label="区域二" value="beijing"></el-option>
                     </el-select>
                 </el-form-item>
                 
                 <el-form-item label="获得方式" prop="region2">
-                    <el-select v-model="formInline.region2" placeholder="活动区域">
+                    <el-select v-model="formInquiry.region2" placeholder="活动区域">
                         <el-option label="区域一" value="shanghai"></el-option>
                         <el-option label="区域二" value="beijing"></el-option>
                     </el-select>
                 </el-form-item>
                 
                 <el-form-item label="获得时间" prop="date">
-                    <el-date-picker type="date" placeholder="选择日期"  v-model="formInline.date"></el-date-picker>
+                    <el-date-picker type="date" placeholder="选择日期"  v-model="formInquiry.date"></el-date-picker>
                 </el-form-item>
                 
                 <el-form-item label="面积" prop="area">
-                    <el-input v-model="formInline.area"></el-input>
+                    <el-input v-model="formInquiry.area"></el-input>
                 </el-form-item>
                 
                 <el-form-item label="价值" prop="price">
-                    <el-input v-model="formInline.price"></el-input>
+                    <el-input v-model="formInquiry.price"></el-input>
                 </el-form-item>
                 
                 <el-form-item label="录入状态" prop="type">
-                    <el-input v-model="formInline.type"></el-input>
+                    <el-input v-model="formInquiry.type"></el-input>
                 </el-form-item>
                 
                 <el-form-item prop="name">
-                    <el-input v-model="formInline.name" placeholder="请输入土地名 /土地证号"></el-input>
+                    <el-input v-model="formInquiry.name" placeholder="请输入土地名 /土地证号"></el-input>
                 </el-form-item>
                 
                 <!-- 按钮 -->
@@ -73,32 +73,40 @@
         </div>
         
         <!-- 信息展示卡片 -->
-        <el-card>
+        <el-card>  
             <!-- table表格区域 -->
-            <el-table :data="landslist" stripe :header-cell-style="{textAlign: 'center',backgroundColor:'#f3f3f5'}">
+            <el-table :data="landslist" stripe :header-cell-style="{backgroundColor:'#f3f3f5'}">
                 <el-table-column type="index"></el-table-column>
                 <el-table-column prop="lands_name" label="土地名称" width="100px"></el-table-column>
                 <el-table-column prop="lands_number" label="土地证号" width="100px"></el-table-column>
                 <el-table-column prop="lands_localtion" label="位置" width="100px"></el-table-column>
-                <el-table-column prop="lands_area" label="建筑面积" width="100px"></el-table-column>
-                <el-table-column prop="lands_price" label="价值" width="100px"></el-table-column>
+                <el-table-column prop="lands_area" label="建筑面积(㎡)" width="100px"></el-table-column>
+                <el-table-column prop="lands_price" label="价值(元)" width="100px"></el-table-column>
                 <el-table-column prop="lands_type" label="性质" width="100px"></el-table-column>
                 <el-table-column prop="lands_getType" label="获得方式" width="100px"></el-table-column>
                 <el-table-column prop="lands_time" label="获得日期" width="100px"></el-table-column>
                 <el-table-column prop="lands_input" label="录入" width="100px">
                     <template slot-scope="scope">
-                        <el-tag v-if="scope.row.lands_input ==='0'">是</el-tag>
+                        <el-tag v-if="scope.row.lands_input ==='1'">是</el-tag>
                         <el-tag type="warning" v-else>否</el-tag>
                     </template>
                 </el-table-column>
                 <el-table-column label="操作">
-                    <template slot-scope="">
+                    <template slot-scope="scope">
+                        <!-- 录入按钮 -->
+                        <el-tooltip effect="dark" content="录入" placement="top" :enterable="false">
+                            <el-button size="mini" type="success" icon="el-icon-download"></el-button>
+                        </el-tooltip>
+                        
+                        <!-- 详情按钮 -->
+                        <el-tooltip effect="dark" content="详情" placement="top" :enterable="false">
+                            <el-button size="mini" type="info" icon="el-icon-search"></el-button>
+                        </el-tooltip>
+                        
                         <!-- 编辑按钮 -->
-                        <el-button type="primary" icon="el-icon-edit" size="mini"
-                       ></el-button>
+                        <el-button type="primary" icon="el-icon-edit" size="mini" @click="showEditDialog(scope.row.id)"></el-button>
                         <!-- 删除按钮 -->
-                        <el-button type="danger" icon="el-icon-delete" 
-                        size="mini"></el-button>
+                        <el-button type="danger" icon="el-icon-delete" size="mini"></el-button>
                     </template>
                 </el-table-column>
             </el-table>
@@ -113,6 +121,9 @@
                 layout="total, sizes, prev, pager, next, jumper"
                 :total="total" background>
             </el-pagination>
+            
+            
+            
         </el-card>
     </div>
 </template>
@@ -120,7 +131,7 @@
 export default {
     data() {
         return {
-            formInline:{
+            formInquiry:{
                 region:'',
                 region1:'',
                 region2:'',
@@ -132,7 +143,35 @@ export default {
                 number:''
             },
             landslist:[],
-            total:100
+            total:100,
+            
+            TableData:[
+               {
+                id:'wegufihui',
+                lands_name:'南区11',
+                lands_number:'222',
+                lands_localtion:'333',
+                lands_area:'44411',
+                lands_price:'555',
+                lands_type:'666',
+                lands_getType:'777',
+                lands_time:'2020-1-1',
+                lands_input:'0'
+               },
+               {
+                id:'wejgufu',
+                lands_name:'111',
+                lands_number:'222',
+                lands_localtion:'333',
+                lands_area:'444',
+                lands_price:'555',
+                lands_type:'666',
+                lands_getType:'777',
+                lands_time:'2020-1-1',
+                lands_input:'1'
+               }
+           ],
+           
         }
     },
     created(){
@@ -141,14 +180,17 @@ export default {
     methods: {
         // 提交
         onSubmit(){
-            console.log(this.formInline);
+            // console.log(this.formInline);
         },
         // 重置表单
         resetForm(){
             this.$refs.landInquiryRefs.resetFields()
         },
         // 获取表单数据
-        getLandsList(){},
+        getLandsList(){
+            // console.log(this.TableData);
+            this.landslist = this.TableData
+        },
         
         //  按钮操作  导入 导出 删除 筛查
         landsImport(){},
@@ -156,9 +198,15 @@ export default {
         landsDelete(){},
         landsScreen(){},
         
+         // 表单编辑
+        showEditDialog(id){
+            console.log(id);
+        },
         // 分页功能方法
         handleSizeChange(){},
         handleCurrentChange(){}
+        
+       
     },
 }
 </script>
