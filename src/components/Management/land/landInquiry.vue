@@ -100,11 +100,11 @@
                         
                         <!-- 详情按钮 -->
                         <el-tooltip effect="dark" content="详情" placement="top" :enterable="false">
-                            <el-button size="mini" type="info" icon="el-icon-search"></el-button>
+                            <el-button size="mini" type="info" icon="el-icon-search" @click="showDetails(scope.row)"></el-button>
                         </el-tooltip>
                         
                         <!-- 编辑按钮 -->
-                        <el-button type="primary" icon="el-icon-edit" size="mini" @click="showEditDialog(scope.row.id)"></el-button>
+                        <el-button type="primary" icon="el-icon-edit" size="mini"></el-button>
                         <!-- 删除按钮 -->
                         <el-button type="danger" icon="el-icon-delete" size="mini"></el-button>
                     </template>
@@ -167,7 +167,7 @@ export default {
                 lands_price:'555',
                 lands_type:'666',
                 lands_getType:'777',
-                lands_time:'2020-1-1',
+                lands_time:'2020-1-1', 
                 lands_input:'1'
                }
            ],
@@ -199,8 +199,8 @@ export default {
         landsScreen(){},
         
          // 表单编辑
-        showEditDialog(id){
-            console.log(id);
+        showDetails(row){
+            this.$router.push(`landsDetails/${row.id}`)
         },
         // 分页功能方法
         handleSizeChange(){},
@@ -211,19 +211,5 @@ export default {
 }
 </script>
 <style scoped>
-    .features{
-        margin: 10px 0 10px 0;
-    }
-    .features .btn{
-        margin-left: 20px;
-    }
-    .features .btn .el-button{
-        margin-left: 20px;
-    }
-    .features .btn .el-tag{
-        float: right;
-        margin-right: 100px;
-        padding: 0 10px 0 10px;
-        color: #4994fb; 
-    }
+   
 </style>

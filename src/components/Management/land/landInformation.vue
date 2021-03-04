@@ -22,7 +22,7 @@
             </el-steps>
             
             
-            <!-- 表单主题 -->
+            <!-- 表单主体-->
             <el-form :model="form" label-position="top" ref="landFormRefs" :rules="landFormRules">
                 <el-tabs v-model="activeIndex" :tab-position="'left'" @tab-click="tabClicked" :before-leave="beforeTabLeave">
                 <!-- 基本信息 -->
@@ -65,79 +65,42 @@
                     </el-tab-pane>
                     
                     <el-tab-pane label="附件信息" name="1">
+                        <span>土地地籍图纸、权属证书、照片</span>
+                        <el-divider></el-divider>
+                        
+                        <el-upload list-type="picture" action="https://jsonplaceholder.typicode.com/posts/">
+                            <el-button size="small" type="primary">上传图片</el-button>
+                            <div slot="tip" >支持jpeg、png格式上传</div>
+                        </el-upload>
+                        <el-divider></el-divider>
+                        
+                        <el-upload list-type="picture" action="https://jsonplaceholder.typicode.com/posts/">
+                            <el-button size="small" type="primary">上传文件</el-button>
+                            <div slot="tip" >支持word、pdf格式上传</div>
+                        </el-upload>
                         
                     </el-tab-pane>
+                    
                     <el-tab-pane label="其他信息" name="2">
-                        
+                            <el-form-item label="土地地上附着物" prop="groundAttachments">
+                                <el-input  v-model="form.groundAttachments" style="width:60%" placeholder="请输入土地地上附着物"></el-input>
+                            </el-form-item>
+                            <el-form-item label="地下设施" prop="underground">
+                                <el-input  v-model="form.underground" style="width:60%" placeholder="请输入地下设施"></el-input>
+                            </el-form-item>
+                            <el-form-item label="其他" prop="other">
+                                <el-input  v-model="form.other" style="width:60%" placeholder="请输入其他备注"></el-input>
+                            </el-form-item>
+                            
+                            <el-form-item>
+                                <el-button type="primary">提交</el-button>
+                            </el-form-item>
                     </el-tab-pane>
                     
                 </el-tabs>
             </el-form>
             
         </el-card>
-        
-        <!-- 信息录入主体 -->
-        <!-- <el-card>
-           
-            <el-row>
-                左半部分表单
-                <el-col :span="12">
-                    <div>
-                        <el-form ref="landFormRef" :rules="landFormRules" :model="form" label-width="200px">
-                            <h3>基本信息</h3>
-                            <el-form-item label="土地名称" prop="landName">
-                                <el-input  v-model="form.landName" style="width:60%" placeholder="请输入土地名称"></el-input>
-                            </el-form-item>
-                            <el-form-item label="土地证号" prop="landNumber">
-                                <el-input  v-model="form.landNumber" style="width:60%" placeholder="请输入土地证号"></el-input>
-                            </el-form-item>
-                            <el-form-item label="土地性质">
-                                <el-select placeholder="请选择土地性质" style="width:60%" v-model="form.region">
-                                    <el-option label="区域一" value="shanghai"></el-option>
-                                    <el-option label="区域二" value="beijing"></el-option>
-                                </el-select>
-                            </el-form-item>
-                            <el-form-item label="土地面积" prop="landArea">
-                                <el-input  v-model="form.landArea" style="width:60%" placeholder="请输入土地面积"></el-input>
-                            </el-form-item>
-                            <el-form-item label="土地价值" prop="landPrice">
-                                <el-input  v-model="form.landPrice" style="width:60%" placeholder="请输入土地价值"></el-input>
-                            </el-form-item>
-                            <el-form-item label="获得方式" prop="type">
-                                <el-select placeholder="请选择获得方式" style="width:60%" v-model="form.type">
-                                    <el-option label="区域一" value="shanghai"></el-option>
-                                    <el-option label="区域二" value="beijing"></el-option>
-                                </el-select>
-                            </el-form-item>
-                            <el-form-item label="获得时间" prop="date">
-                                <el-date-picker type="date" placeholder="选择日期"  style="width: 60%;" v-model="form.date"></el-date-picker>
-                            </el-form-item>
-                            <el-form-item label="土地位置" prop="landLocation">
-                                <el-cascader style="width:60%" v-model="form.landLocation" :options="landList" ></el-cascader>
-                            </el-form-item>
-                            
-                            
-                            <el-form-item>
-                                <el-button type="primary" @click="submit">录入</el-button>
-                                <el-button type="info" @click="resetLandForm">重置</el-button> 
-                            </el-form-item>
-                        </el-form>
-                    </div>
-                </el-col>
-                
-                右半部分表单
-                <el-col :span="12">
-                    <div class="grid-content bg-purple-light"></div>
-                </el-col>
-                
-            </el-row>
-            
-            <div>
-            </div>
-         
-        </el-card> -->
-        
-        
     </div>
 </template>
 <script>
@@ -154,6 +117,10 @@ export default {
                 date:'',
                 type:'',
                 landLocation:'',
+                groundAttachments:'',
+                underground:'',
+                other:''
+                
             },
             // 级联选择器的数据
             landList:[],

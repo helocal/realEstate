@@ -9,6 +9,12 @@ body,
     min-width: 1366px;
 }
 
+ul,
+li {
+    margin: 0;
+    padding: 0;
+}
+
 .el-breadcrumb {
     margin-bottom: 15px;
     font-size: 12px;
@@ -52,4 +58,111 @@ body,
 
 .marginTopMini {
     margin-top: 5%;
+}
+
+
+/* 导入导出 */
+
+.features {
+    margin: 10px 0 10px 0;
+}
+
+.features .btn {
+    margin-left: 20px;
+}
+
+.features .btn .el-button {
+    margin-left: 20px;
+}
+
+.features .btn .el-tag {
+    float: right;
+    margin-right: 100px;
+    padding: 0 10px 0 10px;
+    color: #4994fb;
+}
+
+
+/* 详情页面的样式 */
+
+.landDetailsTop {
+    width: 100%;
+}
+
+.landDetailsTop .landImg {
+    float: left;
+}
+
+.landDetailsTop .landDetails .top ul li {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    margin-left: 20px;
+}
+
+.landDetailsTop .landDetails .top ul li:nth-child(1) {
+    font-family: Adobe Heiti Std;
+    font-size: 20px;
+    color: #000000;
+}
+
+.landDetailsTop .landDetails .top ul li:nth-child(2) {
+    font-family: Adobe Heiti Std;
+    font-size: 18px;
+    color: #ffa526;
+}
+
+.landDetailsTop .landDetails .top ul li:nth-child(n+2) {
+    margin-left: 60px;
+}
+
+.landDetailsTop .landDetails .middle {
+    margin-left: 60px;
+}
+
+.middle .el-tag {
+    margin-left: 20px;
+}
+
+.landDetailsTop .landDetails .el-row .el-col {
+    margin-left: 20px;
+}
+
+.landDetailsTop .landDetails .el-row .el-col p {
+    font-family: Microsoft YaHei;
+    font-size: 20px;
+    color: #180000;
+}
+
+.landDetailsTop .landDetails .el-row .el-col span {
+    font-family: Adobe Heiti Std;
+    font-size: 16px;
+    color: #888888;
+}
+
+.landImages {
+    margin-top: 20px;
+}
+
+.el-row .el-col .price p {
+    color: #ff0000;
+}
+
+.landImages p {
+    font-family: Adobe Heiti Std;
+    color: #b9b9bc;
+}
+
+.landFooter .el-row .el-col {
+    margin-top: 30px;
+}
+
+.landFooter p {
+    font-family: Adobe Heiti Std;
+    color: #b7b7ba;
+}
+
+.landFooter span {
+    font-family: Adobe Heiti Std;
+    color: #298fff;
 }

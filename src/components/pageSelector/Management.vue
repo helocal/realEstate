@@ -6,16 +6,16 @@
                 <img src="../../assets/img/login/schoolLogos.png" alt="">
                 <ul>
                     <li>
-                        <router-link to="/management/land/landInformation">统计报表</router-link>
+                        <router-link to="/welcome">统计报表</router-link>
                     </li>
                     <li>
-                        <router-link to="/management/land/landInformation">房屋折旧</router-link>
+                        <router-link to="/welcome">房屋折旧</router-link>
                     </li>
                     <li>
-                        <router-link to="/management/land/landInformation">系统对接</router-link>
+                        <router-link to="/welcome">系统对接</router-link>
                     </li>
                     <li>
-                        <router-link to="/management/land/landInformation">系统管理维护</router-link>
+                        <router-link to="/welcome">系统管理维护</router-link>
                     </li>
                     <li>
                         <el-dropdown>
@@ -47,26 +47,26 @@
                             <h3>土地</h3>
                             <router-link to="/management/land/landInformation">基本信息录入</router-link>
                             <router-link to="/management/land/landInquiry">信息查询</router-link>
-                            <router-link to="/management/land/landInformation">信息汇总</router-link>
+                            <router-link to="/management/land/landSummary">信息汇总</router-link>
                         </li>
                         
                         <!-- 公用房管理部分 -->
                         <li>
                             <h3>公用房管理</h3>
-                            <router-link to="/management/IntegrQuery">基本信息录入</router-link>
-                            <router-link to="/management/IntegrQuery">信息查询</router-link>
-                            <router-link to="/management/IntegrQuery">公用房申请管理</router-link>
-                            <router-link to="/management/IntegrQuery">信息汇总</router-link>
+                            <router-link to="/management/commonRoom/roomsInformation">基本信息录入</router-link>
+                            <router-link to="/management/commonRoom/roomInquire">信息查询</router-link>
+                            <router-link to="/management/commonRoom/application">公用房申请管理</router-link>
+                            <router-link to="/management/commonRoom/roomSummary">信息汇总</router-link>
                         </li>
                         
                         <!-- 住房管理部分 -->
                         <li>
                             <h3>住房管理</h3>
-                            <router-link to="/management/IntegrQuery">基本信息录入</router-link>
-                            <router-link to="/management/IntegrQuery">信息查询</router-link>
-                            <router-link to="/management/IntegrQuery">周转房申请管理</router-link>
-                            <router-link to="/management/IntegrQuery">居民用房管理</router-link>
-                            <router-link to="/management/IntegrQuery">信息汇总</router-link>
+                            <router-link to="/management/house/houseInformation">基本信息录入</router-link>
+                            <router-link to="/management/house/houseInformation">信息查询</router-link>
+                            <router-link to="/management/house/houseInformation">周转房申请管理</router-link>
+                            <router-link to="/management/house/houseInformation">居民用房管理</router-link>
+                            <router-link to="/management/house/houseInformation">信息汇总</router-link>
                         </li>
                         
                         <!-- 经营性用房管理 -->
@@ -132,7 +132,7 @@ export default {
     }
     .el-header ul{
         position: absolute;
-        top: 0;
+        top: 20px;
         right: 100px;
     }
     .el-header ul li{

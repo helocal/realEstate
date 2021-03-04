@@ -1,4 +1,3 @@
-import { Main } from 'element-ui'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import welcome from '../components/welcome.vue'
@@ -9,6 +8,19 @@ import IntegrQuery from '../components/Management/IntegrQuery.vue'
 // 土地管理
 import landInformation from '../components/Management/land/landInformation.vue'
 import landInquiry from '../components/Management/land/landInquiry.vue'
+import landsDetails from '../components/Management/land/landsDetails.vue'
+import landSummary from '../components/Management/land/landSummary.vue'
+
+// 公用房管理
+import roomsInformation from '../components/Management/commonRoom/roomsInformation.vue'
+import roomInquire from '../components/Management/commonRoom/roomInquire.vue'
+import roomsDetails from '../components/Management/commonRoom/roomsDetails.vue'
+import application from '../components/Management/commonRoom/application.vue'
+import roomSummary from '../components/Management/commonRoom/roomSummary.vue'
+
+// 住房管理
+import houseInformation from '../components/Management/house/houseInformation.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -30,7 +42,17 @@ const routes = [
             { path: '/management/IntegrQuery', component: IntegrQuery },
             // 土地管理
             { path: '/management/land/landInformation', component: landInformation },
-            { path: '/management/land/landInquiry', component: landInquiry }
+            { path: '/management/land/landInquiry', component: landInquiry },
+            { path: '/management/land/landsDetails/:id', component: landsDetails, props: true },
+            { path: '/management/land/landSummary', component: landSummary },
+            // 公用房管理
+            { path: '/management/commonRoom/roomsInformation', component: roomsInformation },
+            { path: '/management/commonRoom/roomInquire', component: roomInquire },
+            { path: '/management/commonRoom/roomsDetails/:id', component: roomsDetails, props: true },
+            { path: '/management/commonRoom/application', component: application },
+            { path: '/management/commonRoom/roomSummary', component: roomSummary },
+            // 住房管理
+            { path: '/management/house/houseInformation', component: houseInformation }
         ]
     }
 
