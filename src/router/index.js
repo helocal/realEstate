@@ -20,6 +20,12 @@ import roomSummary from '../components/Management/commonRoom/roomSummary.vue'
 
 // 住房管理
 import houseInformation from '../components/Management/house/houseInformation.vue'
+import residentialHouse from '../components/Management/house/residentialHouse.vue'
+
+
+// 报告厅管理
+import service from '../components/Management/lectureHall/service.vue'
+import hallApplication from '../components/Management/lectureHall/hallApplication.vue'
 
 Vue.use(VueRouter)
 
@@ -52,7 +58,12 @@ const routes = [
             { path: '/management/commonRoom/application', component: application },
             { path: '/management/commonRoom/roomSummary', component: roomSummary },
             // 住房管理
-            { path: '/management/house/houseInformation', component: houseInformation }
+            { path: '/management/house/houseInformation', component: houseInformation },
+            { path: '/management/house/residentialHouse', component: residentialHouse },
+
+            // 报告厅管理
+            { path: '/management/lectureHall/service', component: service },
+            { path: '/management/lectureHall/hallApplication', component: hallApplication }
         ]
     }
 

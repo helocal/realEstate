@@ -65,7 +65,7 @@
                             <router-link to="/management/house/houseInformation">基本信息录入</router-link>
                             <router-link to="/management/house/houseInformation">信息查询</router-link>
                             <router-link to="/management/house/houseInformation">周转房申请管理</router-link>
-                            <router-link to="/management/house/houseInformation">居民用房管理</router-link>
+                            <router-link to="/management/house/residentialHouse">居民用房管理</router-link>
                             <router-link to="/management/house/houseInformation">信息汇总</router-link>
                         </li>
                         
@@ -83,8 +83,8 @@
                         <li>
                             <h3>报告厅管理</h3>
                             <router-link to="/management/IntegrQuery">基本信息录入</router-link>
-                            <router-link to="/management/IntegrQuery">报告厅申请管理</router-link>
-                            <router-link to="/management/IntegrQuery">维修申请管理</router-link>
+                            <router-link to="/management/lectureHall/hallApplication">报告厅申请管理</router-link>
+                            <router-link to="/management/lectureHall/service">维修申请管理</router-link>
                         </li>
                         
                     </ul>

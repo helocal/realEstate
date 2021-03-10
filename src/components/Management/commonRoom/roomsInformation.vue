@@ -25,7 +25,7 @@
                                     <el-input v-model="schoolForm.number"></el-input>
                                 </el-form-item>
                             </el-col>
-                            <el-col :span="12">
+                            <el-col :span="6">
                                 <el-form-item label="性质">
                                     <el-select v-model="schoolForm.region" placeholder="请选择房间性质"  style="width:100%">
                                         <el-option label="区域一" value="shanghai"></el-option>
@@ -33,19 +33,19 @@
                                     </el-select>
                                 </el-form-item>
                             </el-col>
-                            <el-col :span="12">
+                            <el-col :span="6">
                                 <el-form-item label="占地面积">
                                     <el-input v-model="schoolForm.area"></el-input>
                                 </el-form-item>
                             </el-col>
-                            <el-col :span="12">
+                            <el-col :span="6">
                                 <el-form-item label="建筑面积">
                                     <el-input v-model="schoolForm.buildArea"></el-input>
                                 </el-form-item>
                             </el-col>
-                            <el-col :span="12">
+                            <el-col :span="6">
                                 <el-form-item label="位置">
-                                    <el-select v-model="schoolForm.location" placeholder="请选择房间位置"  style="width:100%">
+                                    <el-select v-model="schoolForm.location" placeholder="请选择校区位置"  style="width:100%">
                                         <el-option label="区域一" value="shanghai"></el-option>
                                         <el-option label="区域二" value="beijing"></el-option>
                                     </el-select>
